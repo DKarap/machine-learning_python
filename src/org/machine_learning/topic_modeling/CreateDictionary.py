@@ -1,7 +1,7 @@
 '''
 Created on Feb 5, 2014
 
-First step for topic modeling is to create a dictionary with the ids of every feature that exist in our corpus:
+First step for topic modeling is to create a dictionary with the ids of every feature that exist in our corpus: these words only will be accepted as features for further processing
 
 #Python
     #Read document vectors from MySql
@@ -43,8 +43,7 @@ dictionary_output_file = str(sys.argv[4])
 ### MAIN 
 
 '''
-
-
+start = time.time()
 # peewee mysql wrapper
 db = MySQLDatabase(database_name, user=database_usr,passwd=database_psw)
 class Job_post(peewee.Model):
@@ -57,7 +56,6 @@ class Job_post(peewee.Model):
         
         
         
-start = time.time()
 # collect statistics about all tokens
 dictionary = corpora.Dictionary(job.document_vector.encode("utf-8").split(',') for job in Job_post.select().where( ~(Job_post.document_vector >> None) & (Job_post.topics >> None)  ))
 
@@ -65,9 +63,6 @@ dictionary = corpora.Dictionary(job.document_vector.encode("utf-8").split(',') f
 # store the dictionary, for future reference
 dictionary.save(dictionary_output_file)
 
-# Info messages
-print dictionary
-print "\tTotal Time:", time.time() - start
 
 
 # Close database connection
@@ -75,6 +70,9 @@ db.close()
 
 
 
+# Info messages
+print dictionary
+print "\tTotal Time:", time.time() - start
 
 
 
