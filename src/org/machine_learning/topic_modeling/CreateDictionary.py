@@ -9,7 +9,7 @@ First step for topic modeling is to create a dictionary with the ids of every fe
     #Save Dictionary into disk
 
 #Usage
-    python src/org/machine_learning/topic_modeling/CreateDictionary.py Production usr psw  /Users/mimis/Development/Amedoo/machine-learning_python/data/dictionary/jobs_en.dict
+    python src/org/machine_learning/topic_modeling/CreateDictionary.py Production usr psw  /Users/mimis/Development/Amedoo/machine-learning_python/data/dictionary/jobs_en.dict true
 
 @author: mimis
 '''
@@ -38,7 +38,7 @@ database_name = str(sys.argv[1])
 database_usr = str(sys.argv[2])
 database_psw = str(sys.argv[3])
 dictionary_output_file = str(sys.argv[4])
-
+update = str(sys.argv[5])
 
 
 
@@ -56,11 +56,20 @@ class Job_post(peewee.Model):
 
     class Meta:
         database = db
-        
-        
+
+
+
         
 # collect statistics about all tokens
 dictionary = corpora.Dictionary(job.document_vector.encode("utf-8").split(',') for job in Job_post.select().where( ~(Job_post.document_vector >> None) & (Job_post.topics >> None)  ))
+
+
+# if update true then merge the new dict with an old one
+if update.lower() == 'true':
+    # load dictionary 
+    dictionary_old = corpora.Dictionary.load(dictionary_output_file)
+    corpora.Dictionary.merge_with(dictionary, dictionary_old)
+
 
 
 # store the dictionary, for future reference
