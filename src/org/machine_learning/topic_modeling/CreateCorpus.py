@@ -21,7 +21,7 @@ Second step for topic modeling is to the Corpora - a list of document vectors
 '''
 import logging
 import MySQLdb as mdb
-from gensim import corpora, models, similarities
+from gensim import corpora
 import peewee
 from peewee import *
 import sys
@@ -36,7 +36,7 @@ logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=lo
 
 
 '''
-### INPUT 
+####################### INPUT #######################
 
 '''
 database_name = str(sys.argv[1])
@@ -52,8 +52,7 @@ corpus_output_file = str(sys.argv[5])
 
 
 '''
-### MAIN 
-
+####################### MAIN #######################
 '''
 start = time.time()
 # peewee mysql wrapper

@@ -15,7 +15,7 @@ First step for topic modeling is to create a dictionary with the ids of every fe
 '''
 import logging
 import MySQLdb as mdb
-from gensim import corpora, models, similarities
+from gensim import corpora
 import peewee
 from peewee import *
 import sys
@@ -29,9 +29,10 @@ sys.stdout = codecs.getwriter('utf8')(sys.stdout)
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
 
-'''
-### INPUT 
 
+
+'''
+####################### INPUT #######################
 '''
 database_name = str(sys.argv[1])
 database_usr = str(sys.argv[2])
@@ -39,9 +40,11 @@ database_psw = str(sys.argv[3])
 dictionary_output_file = str(sys.argv[4])
 
 
-'''
-### MAIN 
 
+
+
+'''
+####################### MAIN #######################
 '''
 start = time.time()
 # peewee mysql wrapper
@@ -72,7 +75,7 @@ db.close()
 
 # Info messages
 print dictionary
-print "\tTotal Time:", time.time() - start
+print "Total Time:", time.time() - start
 
 
 
