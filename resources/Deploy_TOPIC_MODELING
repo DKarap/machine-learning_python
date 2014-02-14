@@ -3,6 +3,7 @@
 
 			%%%%%   INSTRUCTIONS FOR TOPIC MODELING   %%%%%
 			
+			@@@ All the analysis is done in the JAVA part(feature Selection). Here we Just read the already constructed document vectors in order to create the Dictionary, Training Corpora and Topic Model @@@ 
 
 
 			1. First step is to create the DICTIONARY:
