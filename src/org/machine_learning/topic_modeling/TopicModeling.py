@@ -12,7 +12,7 @@ Last step for topic modeling is to create the model based on trained corpus and 
     #Save LSI model into disk for later usage
 
 #Usage
-    python src/org/machine_learning/topic_modeling/TopicModeling.py 
+    python src/org/machine_learning/topic_modeling/TopicModeling.py  dictionary_file corpus_file model_output_file numper_of_topics
 
 @author: mimis
 '''
