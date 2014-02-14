@@ -21,7 +21,7 @@ Second step for topic modeling is to the Corpora - a list of document vectors
 '''
 import logging
 import MySQLdb as mdb
-from gensim import corpora
+from gensim import corpora,matutils
 import peewee
 from peewee import *
 import sys
@@ -89,7 +89,8 @@ corpus = MyCorpus()
 #    print vector
             
             
-            
+#print 'old_coprus:',old_corpus
+#print 'corpus:',corpus            
             
 # save the corpus in the Matrix Market format
 corpora.MmCorpus.serialize(corpus_output_file, corpus)
