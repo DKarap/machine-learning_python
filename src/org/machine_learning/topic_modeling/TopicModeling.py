@@ -52,6 +52,9 @@ corpus = corpora.MmCorpus(corpus_file)
 print corpus
 
 
+dictionary.filter_extremes(3,0.5,100000)
+
+
 # step 1 -- initialize a model
 print 'tf-idf transformation'
 tfidf = models.TfidfModel(corpus) 
