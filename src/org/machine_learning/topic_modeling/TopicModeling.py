@@ -32,7 +32,6 @@ dictionary_file = str(sys.argv[1])
 corpus_file = str(sys.argv[2])
 model_output_file = str(sys.argv[3])
 numper_of_topics = int(sys.argv[4])
-numper_of_features = int(sys.argv[5])
 
 
 
@@ -53,7 +52,6 @@ corpus = corpora.MmCorpus(corpus_file)
 print 'corpus:',corpus,'dictionary:',dictionary
 
 
-dictionary.filter_extremes(3,0.5,numper_of_features)
 
 
 # step 1 -- initialize a model
