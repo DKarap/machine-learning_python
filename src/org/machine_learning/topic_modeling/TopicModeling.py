@@ -12,7 +12,7 @@ Last step for topic modeling is to create the model based on trained corpus and 
     #Save LSI model into disk for later usage
 
 #Usage
-    python src/org/machine_learning/topic_modeling/TopicModeling.py  ./data/dictionary/jobs_en.dict ./data/corpus/jobs_en.mm ./data/model/model.lsi 10
+    python src/org/machine_learning/topic_modeling/TopicModeling.py  ./data/dictionary/jobs_en.dict ./data/corpus/jobs_en.mm ./data/model/model.lsi 10 30000
 
 @author: mimis
 '''
@@ -32,6 +32,7 @@ dictionary_file = str(sys.argv[1])
 corpus_file = str(sys.argv[2])
 model_output_file = str(sys.argv[3])
 numper_of_topics = int(sys.argv[4])
+numper_of_features = int(sys.argv[5])
 
 
 
@@ -49,10 +50,10 @@ start = time.time()
 # load dictionary and corpus
 dictionary = corpora.Dictionary.load(dictionary_file)
 corpus = corpora.MmCorpus(corpus_file)
-print corpus
+print 'corpus:',corpus,'dictionary:',dictionary
 
 
-dictionary.filter_extremes(3,0.5,100000)
+dictionary.filter_extremes(3,0.5,numper_of_features)
 
 
 # step 1 -- initialize a model
