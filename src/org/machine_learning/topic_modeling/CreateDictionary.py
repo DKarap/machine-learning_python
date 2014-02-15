@@ -9,7 +9,7 @@ First step for topic modeling is to create a dictionary with the ids of every fe
     #Save Dictionary into disk
 
 #Usage
-    python src/org/machine_learning/topic_modeling/CreateDictionary.py Production usr psw  /Users/mimis/Development/Amedoo/machine-learning_python/data/dictionary/jobs_en.dict true 30000
+    python src/org/machine_learning/topic_modeling/CreateDictionary.py Production root salle20mimis  /Users/mimis/Development/Amedoo/machine-learning_python/data/dictionary/jobs_en.dict true 30000 false
 
 @author: mimis
 '''
@@ -40,7 +40,7 @@ database_psw = str(sys.argv[3])
 dictionary_output_file = str(sys.argv[4])
 update = str(sys.argv[5])
 numper_of_features = int(sys.argv[6])
-
+filter_extremes = str(sys.argv[7])
 
 
 '''
@@ -73,7 +73,8 @@ if update.lower() == 'true':
 
 
 # filter extreme features
-dictionary.filter_extremes(3,0.5,numper_of_features)
+if filter_extremes.lower() == 'true':
+    dictionary.filter_extremes(3,0.5,numper_of_features)
 
 
 

@@ -7,7 +7,7 @@
 
 
 			1. First step is to create the DICTIONARY:
-			   Command:     python src/org/machine_learning/topic_modeling/CreateDictionary.py database_name usr psw  dictionary_output_file update_existed_dictionary 30000
+			   Command:     python src/org/machine_learning/topic_modeling/CreateDictionary.py database_name usr psw  dictionary_output_file update_existed_dictionary numper_of_topics filter_extremes
 			   				    
 							    #Read document vectors from MySql
 							    #Add document's vectors to GenSim Dictionary
@@ -25,7 +25,7 @@
 
 			
 			3. Last step is to create the TOPIC MODEL:
-			   Command:         python src/org/machine_learning/topic_modeling/TopicModeling.py  dictionary_file corpus_file model_output_file numper_of_topics
+			   Command:         python src/org/machine_learning/topic_modeling/TopicModeling.py  dictionary_file corpus_file model_output_file 
 
 			   				    
 							    #Load Dictionary and Corpus
