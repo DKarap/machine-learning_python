@@ -12,13 +12,14 @@ Last step for topic modeling is to create the model based on trained corpus and 
     #Save LSI model into disk for later usage
 
 #Usage
-    python src/org/machine_learning/topic_modeling/TopicModeling.py  dictionary_file corpus_file model_output_file numper_of_topics
+    python src/org/machine_learning/topic_modeling/TopicModeling.py  ./data/dictionary/jobs_en.dict ./data/corpus/jobs_en.mm ./data/model/model.lsi 10
 
 @author: mimis
 '''
 from gensim import corpora, models
 import logging
 import time
+import sys
 
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
@@ -27,10 +28,10 @@ logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=lo
 ####################### INPUT #######################
 
 '''
-dictionary_file = '/Users/mimis/Development/Amedoo/machine-learning_python/data/dictionary/jobs_en.dict'
-corpus_file = '/Users/mimis/Development/Amedoo/machine-learning_python/data/corpus/jobs_en.mm'
-model_output_file = '/Users/mimis/Development/Amedoo/machine-learning_python/data/model/model.lsi'
-numper_of_topics = 2
+dictionary_file = str(sys.argv[1])
+corpus_file = str(sys.argv[2])
+model_output_file = str(sys.argv[3])
+numper_of_topics = int(sys.argv[4])
 
 
 
