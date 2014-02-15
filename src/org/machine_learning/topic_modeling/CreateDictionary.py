@@ -61,6 +61,7 @@ class Job_post(peewee.Model):
 
         
 # collect statistics about all tokens
+print 'collect statistics about all tokens..'
 dictionary = corpora.Dictionary(job.document_vector.encode("utf-8").split(',') for job in Job_post.select().where( ~(Job_post.document_vector >> None) & (Job_post.topics >> None)  ))
 
 
@@ -73,6 +74,7 @@ if update.lower() == 'true':
 
 
 # store the dictionary, for future reference
+print 'store the dictionary, for future reference..'
 dictionary.save(dictionary_output_file)
 
 
