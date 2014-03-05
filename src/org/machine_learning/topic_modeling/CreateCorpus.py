@@ -15,7 +15,7 @@ Second step for topic modeling is to the Corpora - a list of document vectors
     #Save Corpus into disk with Market Matrix Format
 
 #Usage
-    python src/org/machine_learning/topic_modeling/CreateCorpus.py Production usr psw  /Users/mimis/Development/Amedoo/machine-learning_python/data/dictionary/jobs_en.dict   /Users/mimis/Development/Amedoo/machine-learning_python/data/corpus/jobs_en.mm
+    python src/org/machine_learning/topic_modeling/CreateCorpus.py Production root  salle20mimis  ./data/dictionary/jobs_en.dict   ./data/corpus/jobs_en.mm &
 
 @author: mimis
 '''

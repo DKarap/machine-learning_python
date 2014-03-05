@@ -12,7 +12,7 @@ Last step for topic modeling is to create the model based on trained corpus and 
     #Save LSI model into disk for later usage
 
 #Usage
-    python src/org/machine_learning/topic_modeling/TopicModeling.py  ./data/dictionary/jobs_en.dict ./data/corpus/jobs_en.mm ./data/model/model.lsi 10 30000
+    python src/org/machine_learning/topic_modeling/TopicModeling.py  ./data/dictionary/jobs_en.dict ./data/corpus/jobs_en.mm ./data/model/model.lsi 10 &
 
 @author: mimis
 '''
@@ -73,7 +73,7 @@ corpus_lsi = lsi[corpus_tfidf]
 
 # what do these two latent dimensions stand for?
 lsi.print_topics(numper_of_topics)
-
+#lsi.show_topics(numper_of_topics)
 
 
 #for doc in corpus_lsi: # both bow->tfidf and tfidf->lsi transformations are actually executed here, on the fly
