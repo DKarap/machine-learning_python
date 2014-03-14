@@ -13,7 +13,7 @@
 							    #Add document's vectors to GenSim Dictionary
 							    #Save Dictionary into disk
 					
-						example:     python src/org/machine_learning/topic_modeling/CreateDictionary.py Production root salle20mimis  ./data/dictionary/jobs_en.dict false 3000000 false
+						example:     python src/org/machine_learning/topic_modeling/CreateDictionary.py database_name usr psw  ./data/dictionary/jobs_en.dict false 3000000 false
 						
 
 
@@ -25,7 +25,7 @@
 							    #Add document's vectors to GenSim Corpora
 							    #Save Corpus into disk with Market Matrix Format
 
-						 example:	python src/org/machine_learning/topic_modeling/CreateCorpus.py Production root  salle20mimis  ./data/dictionary/jobs_en.dict   ./data/corpus/jobs_en.mm &
+						 example:	python src/org/machine_learning/topic_modeling/CreateCorpus.py database_name usr psw  ./data/dictionary/jobs_en.dict   ./data/corpus/jobs_en.mm &
 			
 			3. Last step is to create the TOPIC MODEL:
 			   Command:         python src/org/machine_learning/topic_modeling/TopicModeling.py  dictionary_file corpus_file model_output_file numper_of_topics 
