@@ -9,7 +9,7 @@ First step for topic modeling is to create a dictionary with the ids of every fe
     #Save Dictionary into disk
 
 #Usage
-    python src/org/machine_learning/topic_modeling/CreateDictionary.py Production root salle20mimis  ./data/dictionary/jobs_en.dict false 3000000 false
+    python src/org/machine_learning/topic_modeling/CreateDictionary.py database_name usr psw  ./data/dictionary/jobs_en.dict false 3000000 false
 
 @author: mimis
 '''
